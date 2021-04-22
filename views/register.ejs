@@ -1,0 +1,45 @@
+<%- include('layout/layout.ejs') %>
+    <div class="container">
+        <div class="row mt-5">
+            <div>
+                <% if(errors != "") { %>
+                    <% errors.forEach((item) => { %>
+                        <div class="alert alert-danger">
+                            <%- item %>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+            <div class="container" style="color: grey;">
+                <div class="register-form">
+                    <form method="POST" action="/register">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="fullName" id="fullName" placeholder="Jméno">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" name="email" class="form-control" id="email" placeholder="E-amil" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Heslo" required>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="password" class="form-control" name="passwordConfirmation" id="passwordConfirmation" placeholder="Potvrdit heslo" required>
+                        </div>
+                        <div class="center">
+                            <button type="submit" class="btn btn-primary">Registrovat se</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <div>
+                        Už mám účet. <a href="/login">Přihlásit se</a>.
+                    </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+</body>
+</html>

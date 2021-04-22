@@ -1,0 +1,46 @@
+<%- include('layout/layout.ejs') %>
+  <div class="container">
+    <div class="containerTransparent">
+      <img src="img/projection.jpg" alt="about1" style="width:100%;">
+      <div class="content">
+        <h1><%= Text %></h1>
+        <br>
+      </div>
+    </div>
+
+    <div class="container">
+      <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Datum</th>
+                <th>Čas</th>
+                <th>Film</th>
+                <th>Sál</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% for(var i = 0; i < projekce.length; i++) { %>
+            <tr>
+                <td><%= projekce[i].idpromitani%></td>
+                <td><%= projekce[i].datum.getDate() + ". " +  projekce[i].datum.getMonth() + ". " + projekce[i].datum.getFullYear() %></td>
+                <td><%= projekce[i].cas%></td>
+                <td><%= projekce[i].nazev_cz%></td>
+                <td><%= projekce[i].saly_idsaly%></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+      <% if('./loginController/LoggedIn') { %>
+        <div class="padding">
+          <div class="center">
+            <button type="button" class="btn btn-outline-success"> <a href="/addProjection">Přidat projekci</a> </button>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+    
+    <br><footer><div class="container"><small><a>© 2021 Dominik Borek</a><br><a>E-mail: <i>borek_dominik@oauh.cz</i></a></small></div></footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<%- include('layout/layout.ejs') %>
+  <div class="container">
+    <div class="containerTransparent">
+      <img src="img/film.jpg" alt="about1" style="width:100%;">
+      <div class="content">
+        <h1>Filmy</h1>       
+        <br>
+      </div>
+    </div>
+    <p><%= //filmy.forEach((film) => { console.log(film[1]) });%></p>
+    <div class="container">
+      <table class="styled-table">
+        <thead>
+         
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Název</th>
+                <th scope="col">Délka</th>
+                <th scope="col">Typ filmu</th>
+                <th scope="col">Žánr filmu</th>
+
+            </tr>
+        </thead>        
+        <tbody> 
+          <% for(var i = 0; i < filmy.length; i++) { %>
+          <tr>            
+            <td> <%= filmy[i].idfilmy %></td>
+            <td> <%= filmy[i].nazev_cz %></td>
+            <td> <%= filmy[i].delka %> min.</td>
+            <td> <%= filmy[i].typ_filmu %></td>
+            <td> <%= filmy[i].zanr_filmu %></td>           
+         </tr>  
+          <% } %>    
+        </tbody>        
+      </table>
+      <% if('./loginController/LoggedIn') { %>
+        <div class="padding">
+          <div class="center">
+            <button type="button" class="btn btn-outline-success"> <a href="/addFilm">Přidat film</a> </button>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+    <br><footer><div class="container"><small><a>© 2021 Dominik Borek</a><br><a>E-mail: <i>borek_dominik@oauh.cz</i></a></small></div></footer>
+</body>
+</html>
